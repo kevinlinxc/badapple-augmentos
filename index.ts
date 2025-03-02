@@ -12,7 +12,7 @@ class ExampleAugmentOSApp extends TpaServer {
     super(config);
     // start off with image 0
 
-    this.image_index = 0;
+    this.image_index = 40;
     this.updateImage(this.image_index);
   }
 
@@ -34,10 +34,10 @@ class ExampleAugmentOSApp extends TpaServer {
   protected async onSession(session: TpaSession, sessionId: string, userId: string): Promise<void> {
     // loop sending images
     setInterval(() => {
-      this.image_index += 1;
+      this.image_index += 8;
       this.updateImage(this.image_index);
       this.sendBitmap(session);
-    }, 8000);
+    }, 5000);
 
     // Unused other event handlers
     const cleanup = [
