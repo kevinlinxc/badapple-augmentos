@@ -34,10 +34,10 @@ class ExampleAugmentOSApp extends TpaServer {
   protected async onSession(session: TpaSession, sessionId: string, userId: string): Promise<void> {
     // loop sending images
     setInterval(() => {
-      this.image_index += 8;
+      this.image_index += 10;
       this.updateImage(this.image_index);
       this.sendBitmap(session);
-    }, 5000);
+    }, 4000);
 
     // Unused other event handlers
     const cleanup = [
@@ -71,7 +71,7 @@ const app = new ExampleAugmentOSApp({
   packageName: 'org.kevin.badapple', // make sure this matches your app in dev console
   apiKey: 'your_api_key', // Not used right now, can be anything
   port: 80, // The port you're hosting the server on
-  augmentOSWebsocketUrl: 'wss://dev.augmentos.org/tpa-ws' //AugmentOS url
+  augmentOSWebsocketUrl: 'wss://staging.augmentos.org/tpa-ws' //AugmentOS url
 });
 
 app.start().catch(console.error);
